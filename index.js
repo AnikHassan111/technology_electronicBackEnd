@@ -60,8 +60,9 @@ async function run() {
         })
         app.delete('/cartitem/:id', async (req, res) => {
             let id = req.params.id
-            let query = { _id: new ObjectId(id) }
+            let query = { _id: id }
             const result = await brandCartCollection.deleteOne(query)
+            console.log(result);
             res.send(result)
         })
 
